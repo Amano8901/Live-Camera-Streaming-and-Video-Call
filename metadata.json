@@ -1,0 +1,8 @@
+{
+  "name": "Live Camera Streaming and Video Call",
+  "description": "A simple video call application using WebRTC for peer-to-peer connection. Start your camera, share connection details with a friend, and start a video call.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC Video Call</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app-container">
+      <header>
+        <h1>Video Call</h1>
+        <p>A peer-to-peer video calling app using WebRTC.</p>
+      </header>
+      <main>
+        <div class="video-container">
+          <div class="video-wrapper">
+            <h2>You</h2>
+            <video id="localVideo" autoplay playsinline muted></video>
+          </div>
+          <div class="video-wrapper">
+            <h2>Friend</h2>
+            <video id="remoteVideo" autoplay playsinline></video>
+          </div>
+        </div>
+
+        <div class="controls-container">
+            <button id="startBtn">1. Start Camera</button>
+            <p id="status" role="status">Please start your camera to begin.</p>
+            
+            <div id="call-controls" class="hidden">
+                <div class="control-group">
+                    <h3><span class="step">2</span>I am the Caller</h3>
+                    <button id="createOfferBtn">Create Call Offer</button>
+                    <textarea id="offerSdp" readonly placeholder="Your offer will appear here. Copy it and send to your friend."></textarea>
+                    <h3><span class="step">3</span>Paste Friend's Answer</h3>
+                    <textarea id="answerSdp" placeholder="Paste the answer from your friend here."></textarea>
+                    <button id="setRemoteDescriptionBtn">Accept Answer & Connect</button>
+                </div>
+                
+                <div class="separator">OR</div>
+
+                <div class="control-group">
+                    <h3><span class="step">2</span>I am the Receiver</h3>
+                    <textarea id="offerToAnswer" placeholder="Paste the offer from your friend here."></textarea>
+                    <button id="createAnswerBtn">Create Answer</button>
+                    <textarea id="answerSdpOutput" readonly placeholder="Your answer will appear here. Copy it and send back to the caller."></textarea>
+                </div>
+            </div>
+             <div id="active-call-controls" class="hidden">
+                <button id="shareScreenBtn">Share Screen</button>
+                <button id="toggleCameraBtn">Turn Camera Off</button>
+                <button id="disconnectBtn">Disconnect Call</button>
+             </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="index.tsx"></script>
+  </body>
+</html>
